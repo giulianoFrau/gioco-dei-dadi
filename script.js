@@ -16,6 +16,10 @@ const current1El = document.getElementById('current--1');
 score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add('hidden');
+let scores = [0, 0]; // tiene i punteggi memorizzati dei 2 giocatori,partono entrambi da 0
+let currentScore = 0; //non puo' essere definito all'interno della funzione perchè ogni volta che facciamo click si riazererebbe
+let activePlayer = 0;
+let playing = true;
 
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -25,10 +29,7 @@ const switchPlayer = function () {
   player1El.classList.toggle('player--active');
 };
 
-let scores = [0, 0]; // tiene i punteggi memorizzati dei 2 giocatori,partono entrambi da 0
-let currentScore = 0; //non puo' essere definito all'interno della funzione perchè ogni volta che facciamo click si riazererebbe
-let activePlayer = 0;
-let playing = true;
+
 //tirare il dado
 
 bntRoll.addEventListener('click', function () {
